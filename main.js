@@ -2,6 +2,7 @@ const get = element => document.getElementById(element);
 
 const newText = get("newText");
 const newBtn = get("newBtn");
+const limparBtn = get("limparBtn");
 const listPend = get("listPend");
 const listConc = get("listConc");
 
@@ -48,3 +49,14 @@ listConc.addEventListener("click", event => {
 })
 
 //Criar função para deletar tarefa
+limparBtn.addEventListener("click", event => {
+    while (listConc.firstChild) {
+        listConc.removeChild(listConc.firstChild);
+    }
+});
+
+
+//FUNÇÃO DELETAR DEFAULD
+//    limparBtn.addEventListener("click", event => {
+//        listConc.remove();
+//    });
