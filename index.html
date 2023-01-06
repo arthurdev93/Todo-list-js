@@ -8,9 +8,10 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-blue-200 h-screen w-width flex flex-col justify-center items-center">
-        <h1 class="text-4xl">Lista de Tarefas</h1>
-        <div class="form">
+    <div class="bg-gray-200 h-screen w-width flex flex-col justify-center items-center">
+    <div class="header">
+        <h1 class="text-5xl">Lista de Tarefas</h1>
+        <div class="form flex">
             <input
                 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="newText"
@@ -18,11 +19,29 @@
                 placeholder="Adicionar nova Tarefa"
             />
             <Button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                id="newBtn"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2"
             >
-                Botão
+                Adicionar
             </Button>
         </div>
+    </div>
+    <div class="todos w-10/12 mt-8">
+        <div class="pendente">
+            <h3 class="text-3xl">Pendente:</h3>
+            <ul id="listPend">
+                <li class="text-center p-3 bg-white mt-4 rounded shadow-lg cursor-pointer hover:bg-blue-200">Item 1</li>
+                <li class="text-center p-3 bg-white mt-4 rounded shadow-lg cursor-pointer hover:bg-blue-200">Item 2</li>
+            </ul>
+        </div>
+        <div class="concluido">
+            <h3 class="text-3xl">Concluído:</h3>
+            <ul id="listConc">
+                <li class="text-center p-3 bg-white mt-4 rounded shadow-lg cursor-pointer hover:bg-blue-200">Item 3</li>
+                <li class="text-center p-3 bg-white mt-4 rounded shadow-lg cursor-pointer hover:bg-blue-200">Item 4</li>
+            </ul>
+        </div>
+    </div>
     </div>
     <script src="./main.js"></script>
 </body>
