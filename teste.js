@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-// Adicione o código que define as variáveis newBtn, newText, listPend, listConc e limparBtn aqui
+// código que define as variáveis newBtn, newText, listPend, listConc e limparBtn aqui
 
 // Teste para verificar se as tarefas são adicionadas corretamente à lista pendente
 newText.value = 'Comprar pão';
