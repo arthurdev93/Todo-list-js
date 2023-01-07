@@ -54,9 +54,3 @@ limparBtn.addEventListener("click", event => {
         listConc.removeChild(listConc.firstChild);
     }
 });
-
-
-//FUNÇÃO DELETAR DEFAULD
-//    limparBtn.addEventListener("click", event => {
-//        listConc.remove();
-//    });
