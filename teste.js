@@ -1,17 +1,36 @@
-const assert = require('assert');
+const assert = require('assert');   //aqui importei o módulo
 
-// Cria os elementos de forma simulada
-//usei o "callback" como argumento para a função click 
+// Cria os eventos de forma simulada, e verifica se os comportamentos são implantados
+
+//>>>PARTE 1: SIMULAÇÃO DE EVENTOS
+//aqui simula inserção de nova tarefa pelo campo de texto
 const newText = { value: '' };
 const newBtn = {
   addEventListener(event, callback) {
-    this.callback = callback;
+    this.callback = callback;   //usei o "callback" como argumento para a função click 
   },
   click() {
-    this.callback;  //o código funciona, mas ainda não entendi o porque heehe
+    this.callback;  
   }
 };  
 
+//simula lista pendente
+const listPend = {
+  children: [],
+  appendChild(element) {
+    this.children.push(element);
+  }
+};
+
+//simula comportamento da lista de concluídos
+const listConc = {
+  children: [],
+  appendChild(element) {
+    this.children.push(element);
+  }
+};
+
+//simula o comportamento do botão "limpar" tarefa
 const limparBtn = {
   addEventListener(event, callback) {
     this.callback = callback;
@@ -21,20 +40,7 @@ const limparBtn = {
   }
 };
 
-const listPend = {
-  children: [],
-  appendChild(element) {
-    this.children.push(element);
-  }
-};
-
-const listConc = {
-  children: [],
-  appendChild(element) {
-    this.children.push(element);
-  }
-};
-
+//>>>PARTE 2: TESTE DOS EVENTOS, PARA CADA TAREFA
 // Aqui testo se as tarefas são adicionadas corretamente à lista pendente
 newText.value = 'Comprar pão';
 newBtn.click();
