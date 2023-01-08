@@ -3,4 +3,5 @@
  feito com HTML, CSS, and JS
  arquitetura do projeto = MVC (Model-View-Controler)
  Estilização através de Tailwind>>    https://tailwindcss.com/
- Testes pela biblioteca assert do NodeJS>>   https://nodejs.org/api/assert.html
+ Testes pela biblioteca assertion do NodeJS>>   https://nodejs.org/api/assert.html
+ Mais infos sobre a lib assertion>>>   https://www.w3schools.com/nodejs/met_assert.asp
