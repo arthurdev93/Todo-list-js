@@ -1,6 +1,7 @@
 const assert = require('assert');
 
 // Cria os elementos de forma simulada
+//usei o "callback" como argumento para a função click 
 const newText = { value: '' };
 const newBtn = {
   addEventListener(event, callback) {
@@ -10,20 +11,23 @@ const newBtn = {
     this.callback;
   }
 };
+
 const limparBtn = {
   addEventListener(event, callback) {
     this.callback = callback;
   },
   click() {
-    this.callback();
+    this.callback;
   }
 };
+
 const listPend = {
   children: [],
   appendChild(element) {
     this.children.push(element);
   }
 };
+
 const listConc = {
   children: [],
   appendChild(element) {
