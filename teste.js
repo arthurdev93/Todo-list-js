@@ -1,11 +1,11 @@
 const assert = require('assert');
 
 //definição das variáveis newBtn, newText, listPend, listConc e limparBtn 
-const newText = get("newText");
-const newBtn = get("newBtn");
-const limparBtn = get("limparBtn");
-const listPend = get("listPend");
-const listConc = get("listConc");
+const newText = document.getElementById("newText");
+const newBtn = document.getElementById("newBtn");
+const limparBtn = document.getElementById("limparBtn");
+const listPend = document.getElementById("listPend");
+const listConc = document.getElementById("listConc");
 
 // Aqui testo se as tarefas são adicionadas corretamente à lista pendente
 newText.value = 'Comprar pão';
