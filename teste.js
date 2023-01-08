@@ -8,16 +8,16 @@ const newBtn = {
     this.callback = callback;
   },
   click() {
-    this.callback;
+    this.callback;  //o código funciona, mas ainda não entendi o porque heehe
   }
-};
+};  
 
 const limparBtn = {
   addEventListener(event, callback) {
     this.callback = callback;
   },
   click() {
-    this.callback;
+    this.callback();
   }
 };
 
