@@ -39,6 +39,7 @@ we intend to test the following:
 ### Dicas Vinicius
 https://tailwindui.com/
 https://www.tailwind-kit.com/components#elements
+https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/buttons/small/filled
 
 
 <button
