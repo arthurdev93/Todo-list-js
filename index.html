@@ -10,7 +10,17 @@
 <body>
     <div class="bg-gray-200 h-screen w-width flex flex-col justify-center items-center">
     <div class="header">
-        <h1 class="text-5xl">Lista de Tarefas</h1>
+        <h1 class="text-5xl">Lista de Tarefas
+        <Button
+        class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        id="newBtn">
+        Importar
+    </Button>
+    <Button
+        class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        id="newBtn">
+        Exportar Lista
+    </Button></h1>
         <div class="form flex">
             <input
                 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -25,7 +35,7 @@
             </Button>
         </div>
     </div>
-    <div class="todos w-10/12 mt-8">
+    <div class="todos w-6/12 mt-8">
         <div class="pendente">
             <h3 class="text-3xl">Pendente:</h3>
             <ul id="listPend">
@@ -43,6 +53,5 @@
     </div>
     </div>
     <script src="./main.js"></script>
-    <script src="tarefas.js"></script>
 </body>
 </html>
