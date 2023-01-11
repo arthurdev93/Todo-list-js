@@ -1,0 +1,50 @@
+# TODO APP for Easy Auth
+
+### Requirements
+
+we intend to test the following:
+
+* you ability to associate data with visual elements
+* your ability to create a simple user interface
+* your ability to use a simple data structure
+* your ability to understand and write english
+
+### Instructions
+
+* todo app must have a model which takes care of the data
+* todo app must have a view which takes care of the user interface
+* todo app must have a controller which takes care of the user interaction
+* todo app must have a way to add new todo items
+* todo app must have a way to remove todo items
+* todo app must have a way to mark todo items as done
+* todo app must have a way to mark todo items as not done
+* todo app must have a way to edit todo items
+* todo app must have a way to sort todo items by creation date
+* todo app must have a way to sort todo items by completion
+
+### Bonus
+
+* unit tests for model only
+* responsive design
+* export todo items to a json
+* object oriented or functional programming
+* beautiful and clean interface
+
+### Notes
+
+* don't merge data with view, always use a model
+* don't use merge view with model, always use a controller
+
+
+### Dicas Vinicius
+https://tailwindui.com/
+https://www.tailwind-kit.com/components#elements
+https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/buttons/small/filled
+
+
+<button
+        type="button"
+        className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Button text
+      </button>
