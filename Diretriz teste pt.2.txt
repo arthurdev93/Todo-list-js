@@ -14,9 +14,6 @@ we intend to test the following:
 * todo app must have a model which takes care of the data
 * todo app must have a view which takes care of the user interface
 * todo app must have a controller which takes care of the user interaction
-* todo app must have a way to remove todo items
-* todo app must have a way to mark todo items as done
-* todo app must have a way to mark todo items as not done
 * todo app must have a way to edit todo items
 * todo app must have a way to sort todo items by creation date
 * todo app must have a way to sort todo items by completion
