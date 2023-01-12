@@ -90,7 +90,7 @@ const loadTodoData = () => {
             const formData = new FormData();
             formData.append("file", file);
             try {
-                const response = await fetch('./Data.json', {
+                const response = await fetch('./todo-data.json', {
                     method: "POST",
                     body: formData
                 });
