@@ -65,9 +65,44 @@ const renderTodoList = () => {
         });
         renderTodoList();
     }
-    
-/* 
-This code sets up a simple to-do list app that allows the user to add new items, toggle their completion status, and remove them. The todoData array stores the data for each to-do item, and the renderTodoList function updates the view to match the current state of the data. The addTodo, toggleTodo and removeTodo functions handle the user interactions and update the data.
-Additionally, you have sorting functions that enable the user to sort the items by their creation date, completion status.
-Please be aware that this is a very basic example and it would require more advanced and complex logic to create a production-ready app.
-*/
+
+//save list to JSON file
+const saveTodoData = () => {
+    const jsonData = JSON.stringify(todoData);
+    const blob = new Blob([jsonData], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "todo-data.json";
+    link.click();
+}
+saveButton.addEventListener("click", saveTodoData);
+
+//Load from a JSON file
+const loadTodoData = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.style.display = "none";
+    document.body.appendChild(input);
+    input.addEventListener("change", async (e) => {
+        const file = e.target.files[0];
+        if(file){
+            const formData = new FormData();
+            formData.append("file", file);
+            try {
+                const response = await fetch('./Data.json', {
+                    method: "POST",
+                    body: formData
+                });
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    });
+    input.click();
+}
+loadButton.addEventListener("click", loadTodoData);
+
+//fim load
