@@ -83,7 +83,7 @@ const loadTodoData = () => {
     fetch('./todo-data.json')
         .then(response => response.json())
         .then(data => {
-            todoList.innerHTML = "";
+            todoList.innerHTML = " ";
             data.forEach(item => {
                 const li = document.createElement("li");
                 li.innerHTML = item;
