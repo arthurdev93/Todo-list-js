@@ -80,29 +80,17 @@ saveButton.addEventListener("click", saveTodoData);
 
 //Load from a JSON file
 const loadTodoData = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.style.display = "none";
-    document.body.appendChild(input);
-    input.addEventListener("change", async (e) => {
-        const file = e.target.files[0];
-        if(file){
-            const formData = new FormData();
-            formData.append("file", file);
-            try {
-                const response = await fetch('./todo-data.json', {
-                    method: "POST",
-                    body: formData
-                });
-                const data = await response.json();
-                console.log(data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    });
-    input.click();
-}
+    fetch('./todo-data.json')
+        .then(response => response.json())
+        .then(data => {
+            todoList.innerHTML = "";
+            data.forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = item;
+                todoList.appendChild(li);
+            });
+        })
+        .catch(error => console.log(error));
+};
 loadButton.addEventListener("click", loadTodoData);
-
 //fim load
