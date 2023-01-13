@@ -33,8 +33,15 @@ const toggleTodo = (id) => {
 const editTodo = (id) => {
     const todoToEdit = todoData.find(todo => todo.id === id);
     // abre um prompt para o usuário digitar o novo texto
-    const newText = prompt("Enter new text: ", todoToEdit.text);
-    todoToEdit.text = newText;
+    const newText = prompt("Enter new text: ");
+    if (!newText) return;
+
+    todoData.forEach(todo => {
+        if (todo.id === id) {
+            todo.text = newText;
+        }
+    });
+    renderTodoList();
 } 
 
 const removeTodo = (id) => {
