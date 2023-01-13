@@ -30,6 +30,13 @@ const toggleTodo = (id) => {
     renderTodoList();
 }
 
+const editTodo = (id) => {
+    const todoToEdit = todoData.find(todo => todo.id === id);
+    // abre um prompt para o usuário digitar o novo texto
+    const newText = prompt("Enter new text: ", todoToEdit.text);
+    todoToEdit.text = newText;
+} 
+
 const removeTodo = (id) => {
     todoData = todoData.filter(todo => {
         return todo.id !== id;
@@ -37,20 +44,20 @@ const removeTodo = (id) => {
     renderTodoList();
 }
 
-//AQUI EMBAIXO VER COMO POR RECURSO DE EDITAR NOTA
+//por icones lixeira e lápis, hero-icon
 const renderTodoList = () => {
     todoList.innerHTML = "";
     todoData.forEach(todo => {
         let listItem = document.createElement("li");
         listItem.innerHTML = `<input type="checkbox" onclick="toggleTodo(${todo.id})" ${todo.completed ? "checked" : ""}>
         <span class="${todo.completed ? "done" : ""}">${todo.text}</span>
-        <button onclick="removeTodo(${todo.id})">Remove</button>`;
+        <button onclick="removeTodo(${todo.id})" class="hero-icon-trash"></button>
+        <button onclick="edittodo(${todo.id})" data-id="${todo.id}" class="hero-icon-pencil"></button>`;
         todoList.appendChild(listItem);
     });
-    }
+    }  
+    addButton.addEventListener("click", addTodo);    
     
-    addButton.addEventListener("click", addTodo);
-
     // sorting function
     const sortByDate = () => {
         todoData.sort((a, b) => b.id - a.id);
