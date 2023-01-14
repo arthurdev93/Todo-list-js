@@ -73,7 +73,7 @@ const renderTodoList = () => {
         editButton.onclick = () => editTodo(todo.id);
 
         listItem.innerHTML = `<input type="checkbox" onclick="toggleTodo(${todo.id})" ${todo.completed ? "checked" : ""}>
-            <span class="${todo.completed ? "done" : ""}">${todo.text}</span>`;
+        <span class="${todo.completed ? "done" : ""} ${todo.completed ? "opacity-50" : ""}">${todo.text}</span>`;
         listItem.appendChild(removeButton);
         listItem.appendChild(editButton);
         todoList.appendChild(listItem);
@@ -83,11 +83,12 @@ addButton.addEventListener("click", addTodo);
  
     
     // sorting function
+    /*
     const sortByDate = () => {
         todoData.sort((a, b) => b.id - a.id);
         renderTodoList();
     }
-    
+    */
     const sortByCompletion = () => {
         todoData.sort((a, b) => {
             if(a.completed === b.completed) return 0;
