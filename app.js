@@ -29,18 +29,26 @@ const toggleTodo = (id) => {
     });
     renderTodoList();
 }
-
+//CORRIGIR: prompt vazio apaga a lista!
 const editTodo = (id) => {
     const todoToEdit = todoData.find(todo => todo.id === id);
     // abre um prompt para o usuário digitar o novo texto
-    const newText = prompt("Enter new text: ");
-    if (!newText) return;
-
-    todoData.forEach(todo => {
-        if (todo.id === id) {
-            todo.text = newText;
-        }
-    });
+    let newText = prompt("Enter new text: ");
+    let taskUpdated = false;
+    if (!newText) {
+        alert("You have not entered any text, the task will not be updated.");
+    }
+    else if(newText.trim() == ''){
+        alert("You have not entered any text, the task will not be updated.");
+    }
+    else {
+        taskUpdated = true;
+        todoData.forEach(todo => {
+            if (todo.id === id) {
+                todo.text = newText;
+            }
+        });
+    }
     renderTodoList();
 } 
 
