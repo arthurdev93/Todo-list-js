@@ -81,22 +81,20 @@ const renderTodoList = () => {
 }
 addButton.addEventListener("click", addTodo);
  
-    
-    // sorting function
-    /*
-    const sortByDate = () => {
-        todoData.sort((a, b) => b.id - a.id);
-        renderTodoList();
+function moveToEnd(event) {
+    // verifica se o checkbox foi marcado
+    if (event.target.checked) {
+        // pega o elemento "li" pai do checkbox marcado
+        var li = event.target.closest("li");
+        // pega o elemento "ul" pai do "li"
+        var ul = li.parentNode;
+        // remove o "li" do seu lugar atual na lista
+        ul.remove(li);
+        // adiciona o "li" ao final da lista
+        ul.appendChild(li);
     }
-    */
-    const sortByCompletion = () => {
-        todoData.sort((a, b) => {
-            if(a.completed === b.completed) return 0;
-            if(a.completed) return 1;
-            if(b.completed) return -1;
-        });
-        renderTodoList();
-    }
+}
+
 
 //save list to JSON file
 const saveTodoData = () => {
