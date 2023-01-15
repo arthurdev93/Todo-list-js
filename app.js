@@ -5,6 +5,7 @@ const loadButton = document.getElementById("load-button");
 const todoList = document.getElementById("todo-list");
 
 let todoData = [];
+let order = 1;      //para iniciar o SORT
 
 const addTodo = (e) => {
     e.preventDefault();
@@ -13,8 +14,10 @@ const addTodo = (e) => {
     let newTodo = {
         text: todoText,
         id: Date.now(),
+        order:order,
         completed: false
     };
+    order++;
     todoData.push(newTodo);
     todoInput.value = "";
     renderTodoList();
