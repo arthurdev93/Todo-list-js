@@ -29,7 +29,6 @@ const toggleTodo = (id) => {
     });
     renderTodoList();
 }
-//CORRIGIR: prompt vazio apaga a lista!
 const editTodo = (id) => {
     const todoToEdit = todoData.find(todo => todo.id === id);
     // abre um prompt para o usuário digitar o novo texto
@@ -102,8 +101,6 @@ function moveToEnd(event) {
         var li = event.target.closest("li");
         // pega o elemento "ul" pai do "li"
         var ul = document.querySelector("ul.todo-list");
-        // remove o "li" do seu lugar atual na lista
-        li.remove();
         // adiciona o "li" ao final da lista
         ul.appendChild(li);
     }
