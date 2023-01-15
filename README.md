@@ -9,7 +9,7 @@
  documentação:
      https://github.com/tailwindlabs/heroicons
 
-**função sort, e load from JSON não estão funcionando
+**função load from JSON não está funcionando
 
  >>> LINK DO PROJETO EM FUNCIONAMENTO ABAIXO
  https://arthurdev93.github.io/Todo-list-js/
