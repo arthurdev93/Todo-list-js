@@ -104,6 +104,15 @@ const renderTodoList = () => {
         listItem.innerHTML = `<input type="checkbox" onclick="toggleTodo(${todo.id})" ${todo.completed ? "checked" : ""}>
         <span class="${todo.completed ? "done" : ""} ${todo.completed ? "opacity-50" : ""}">${todo.text}</span>`;
         
+        let checkbox = listItem.querySelector("input[type='checkbox']");
+        checkbox.checked = todo.completed;
+        checkbox.onchange = () => toggleTodoComplete(todo.id);
+
+        if (todo.completed) {
+            removeButton.classList.add("opacity-50");
+            editButton.classList.add("opacity-50");
+        }
+
         listItem.appendChild(removeButton);
         listItem.appendChild(editButton);
         todoList.appendChild(listItem);
