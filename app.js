@@ -81,12 +81,6 @@ const renderTodoList = () => {
         </svg>`;
         editButton.onclick = () => editTodo(todo.id);
 
-        //sort
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = todo.completed;
-        checkbox.onchange = () => moveToEnd(todo.id);
-
         listItem.innerHTML = `<input type="checkbox" onclick="toggleTodo(${todo.id})" ${todo.completed ? "checked" : ""}>
         <span class="${todo.completed ? "done" : ""} ${todo.completed ? "opacity-50" : ""}">${todo.text}</span>`;
         listItem.appendChild(removeButton);
@@ -96,20 +90,6 @@ const renderTodoList = () => {
 }
 addButton.addEventListener("click", addTodo);
  
-//abaixo, função SORT p/ checkbox
-function moveToEnd(event) {
-    // verifica se o checkbox foi marcado
-    if (event.target.checked) {
-        // pega o elemento "li" pai do checkbox marcado
-        var li = event.target.closest("li");
-        // pega o elemento "ul" pai do "li"
-        var ul = document.querySelector("ul.todo-list");
-        // adiciona o "li" ao final da lista
-        ul.appendChild(li);
-    }
-}
-
-
 //save list to JSON file
 const saveTodoData = () => {
     const jsonData = JSON.stringify(todoData);
