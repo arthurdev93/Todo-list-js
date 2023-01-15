@@ -4,8 +4,7 @@ const saveButton = document.getElementById("save-button");
 const loadButton = document.getElementById("load-button");
 const todoList = document.getElementById("todo-list");
 
-let todoData = [];
-let order = 1;      //para iniciar o SORT
+let todoData = [];      //cria array para lista
 
 const addTodo = (e) => {
     e.preventDefault();
@@ -14,11 +13,21 @@ const addTodo = (e) => {
     let newTodo = {
         text: todoText,
         id: Date.now(),
-        order:order,
         completed: false
     };
-    order++;
+
     todoData.push(newTodo);
+    //abaixo, sorteia ordem ao adicionar novas tarefas 
+    todoData.sort((a, b) => {
+    if (a.completed === b.completed) {
+        return 0;
+    }
+    if (a.completed === false) {
+        return -1;
+    }
+    return 1;
+    });
+
     todoInput.value = "";
     renderTodoList();
 }
@@ -32,10 +41,12 @@ const toggleTodo = (id) => {
     });
     renderTodoList();
 }
+
 const editTodo = (id) => {
     const todoToEdit = todoData.find(todo => todo.id === id);
     // abre um prompt para o usuário digitar o novo texto
     let newText = prompt("Enter new text: ");
+    // verifica se campo prompt não está vazion
     let taskUpdated = false;
     if (!newText) {
         alert("You have not entered any text, the task will not be updated.");
@@ -62,6 +73,16 @@ const removeTodo = (id) => {
 }
 
 const renderTodoList = () => {
+    //atualiza a ordem das tarefas, sempre que essa função (renderTodoList) for chamada
+    todoData.sort((a, b) => {
+        if (a.completed === b.completed) {
+          return 0;
+        }
+        if (a.completed === false) {
+          return -1;
+        }
+        return 1;
+      });      
     todoList.innerHTML = "";
     todoData.forEach(todo => {
         let listItem = document.createElement("li");
@@ -82,7 +103,7 @@ const renderTodoList = () => {
         editButton.onclick = () => editTodo(todo.id);
         listItem.innerHTML = `<input type="checkbox" onclick="toggleTodo(${todo.id})" ${todo.completed ? "checked" : ""}>
         <span class="${todo.completed ? "done" : ""} ${todo.completed ? "opacity-50" : ""}">${todo.text}</span>`;
-        order++;
+        
         listItem.appendChild(removeButton);
         listItem.appendChild(editButton);
         todoList.appendChild(listItem);
@@ -102,7 +123,7 @@ const saveTodoData = () => {
 }
 saveButton.addEventListener("click", saveTodoData);
 
-//Load from a JSON file, não está funcionando
+//Load from a JSON file ***não está funcionando
 const loadTodoData = () => {
     fetch('./todo-data.json')
         .then(response => response.json())
