@@ -1,0 +1,35 @@
+# TODO APP for Easy Auth
+
+### Requirements
+
+we intend to test the following:
+
+* you ability to associate data with visual elements
+* your ability to create a simple user interface
+* your ability to use a simple data structure
+* your ability to understand and write english
+
+### Instructions
+
+* todo app must have a way to sort todo items by creation date	(não concluido)
+* todo app must have a way to sort todo items by completion		(não concluido)
+
+### Bonus
+
+* unit tests for model only
+* responsive design
+* export todo items to a json
+* object oriented or functional programming
+* beautiful and clean interface
+
+### Notes
+
+* don't merge data with view, always use a model
+* don't use merge view with model, always use a controller
+
+
+### Dicas Vinicius
+https://tailwindui.com/
+https://www.tailwind-kit.com/components#elements
+https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/buttons/small/filled
+
